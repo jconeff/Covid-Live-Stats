@@ -1,0 +1,7 @@
+.title {
+    color: hsl(0, 0%, 96%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.footer {
+    background-color: hsla(171, 100%, 41%, 0.103);
+}
