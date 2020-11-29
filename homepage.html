@@ -54,30 +54,13 @@
 
     <!--Body-->
     <Section>
-        <div class="conatiner my-6">
+        <div class="conatiner my-6"></div>
             <h2 class="has-text-centered is-size-5 has-text-weight-medium mb-6">
-                Search covid-19 live stats by entering a country name, or clicking anywhere on the map!
+                The U.S map below shows <div class="today"></div> new daily COVID-19 positive cases and new deaths
             </h2>
-            <div class="tile is-ancestor">
-                <!--search form and main stats-->
-                <div class="tile is-5 is-vertical is-parent box">
-                    <!--search box-->
-                    <div class="tile is-child box control">
-                        <input type="text" placeholder="search by country" id="search-box"
-                            class="input is-primary is-medium is-focused">
-                    </div>
-                    <!--display stats here-->
-                    <div class="tile is-child box" id="covidStats">
-                        <p id="stat1"> stat example </p>
-                        <p id="stat2"> stat example </p>
-                        <p id="stat3"> stat example </p>
-                        <p id="stat4"> stat example </p>
-                        <p id="stat5"> stat example </p>
-                    </div>
-                </div>
+           
 
-                <!--map-->
-                <div class="tile is-7 is-vertical is-parent box">
+               
     
 <div id="info-box"></div>
 <?xml version="1.0" encoding="utf-8"?>
@@ -150,8 +133,7 @@
 </svg>
 
 <a href="https://websitebeaver.com/how-to-make-an-interactive-and-responsive-svg-map-of-us-states-capitals" target="_blank" style="position: absolute; bottom: 0px; right: 0px; text-decoration: none; color: #8a8787"></a>
-                    <div class="tile is-child box" id="worldMap"></div>
-                </div>
+                    
                 
             </div>
         </div>
@@ -184,6 +166,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/js/homepage.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 
 </html>
