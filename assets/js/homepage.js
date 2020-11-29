@@ -61,21 +61,21 @@ for (apiState of stateData) {
     if (map !== null){
         //Least amount of daily cases
             if (bottomAverage >=apiState.positiveIncrease){ 
-                map.setAttribute('fill','#fcae62');
+                map.setAttribute('fill','#bbdefb');
             }
             //Lesser amount of daily cases
         if (bottomAverage <=apiState.positiveIncrease){
-            map.setAttribute('fill','#fa983a');
+            map.setAttribute('fill','#90caf9');
         }
     
         //High amount of cases
         if (average <= apiState.positiveIncrease){
-            map.setAttribute('fill','#e55039');
+            map.setAttribute('fill','#2196f3');
         
         }
         //Highest amount of cases
         if (topAverage <=apiState.positiveIncrease){
-            map.setAttribute('fill','#f02f05');
+            map.setAttribute('fill','#1565c0');
         }
 
         //Daily positive cases
