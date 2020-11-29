@@ -1,0 +1,8 @@
+#localMapWrapper {
+    height: 400px;
+}
+
+#localMap {
+    width: 100%;
+    height: 100%;
+}
