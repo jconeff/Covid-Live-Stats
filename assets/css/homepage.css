@@ -7,14 +7,17 @@
 <<<<<<< HEAD
 }
 
+
+
 #us-map{
-  align-items: center;
-    display: block;
+  
+    
     position: center;
     top: 0;
     left: 0;
-    width: 65%;
-    height: 65%;
+    width: 55%;
+    height: 40%;
+    margin:auto;
   }
   path:hover, circle:hover {
     stroke: #002868 !important;
@@ -40,6 +43,32 @@
     padding: 5px;
     font-family: arial;
   }
-=======
-}
->>>>>>> main
+
+
+
+
+  
+  
+  .brightred {
+    background: #f02f05;
+  }
+  
+  .medred {
+    background: #e55039;
+  }
+  
+  .darkorange {
+    background: #fa983a;
+  }
+
+  .lightorange {
+    background: #fcae62;
+  }
+
+  .box2 {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
+  }
