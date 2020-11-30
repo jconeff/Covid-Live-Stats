@@ -1,333 +1,3 @@
-var mapStyle = [
-    {
-        "featureType": "administrative",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#ff0000"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#43240f"
-            },
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#f2f2f2"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "lightness": "63"
-            },
-            {
-                "color": "#f5f0ea"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "color": "#43240f"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#ff0000"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "color": "#ff0000"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.attraction",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "color": "#ff0000"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.attraction",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.attraction",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "color": "#43240f"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.business",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "color": "#43240f"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.business",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#ff0000"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.business",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            },
-            {
-                "color": "#43240f"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.business",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            },
-            {
-                "color": "#43240f"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#43240f"
-            },
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#b1b67e"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "color": "#43240f"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "saturation": -100
-            },
-            {
-                "lightness": 45
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "saturation": "36"
-            },
-            {
-                "visibility": "simplified"
-            },
-            {
-                "lightness": "2"
-            },
-            {
-                "color": "#c5a784"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "color": "#ff0000"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            },
-            {
-                "saturation": "0"
-            },
-            {
-                "lightness": "0"
-            },
-            {
-                "gamma": "1.00"
-            },
-            {
-                "color": "#c14332"
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "saturation": "18"
-            },
-            {
-                "lightness": "-6"
-            },
-            {
-                "color": "#c5a784"
-            },
-            {
-                "weight": "0.84"
-            },
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#46bcec"
-            },
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#88c6d2"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#9dc9c0"
-            },
-            {
-                "saturation": "0"
-            }
-        ]
-    }
-];
-
 var apiKey = "key=AIzaSyDlvs56CLbiwW-Ty2IjXHoHcReR6nJNUAg";
 
 var searchBoxEl = $("#search-box-city"), searchBtn = $("#search-button");
@@ -337,7 +7,7 @@ var markersInfo = [];
 function initMap() {
   var userLat, userLng;
   map = new google.maps.Map(document.getElementById('localMap'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {lat: 40.7128, lng: -74.0060},
     zoom: 12,
     mapTypeControl: false,
     streetViewControl: false,
@@ -357,6 +27,7 @@ function initMap() {
                   lng: userLng,
               };
               map.setCenter(pos);
+              SearchByCustomLocation(userLat + "," + userLng);
           },
           (denied) => {
 
@@ -400,10 +71,11 @@ var SearchByCustomLocation = function(input){
 
 var searchClinics = function(lat, lng){
     fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?"+
-    "query=coronavirus+test+&location=" + userLat + ",%20" + userLng + "&radius=3000&" + apiKey)
+    "query=corona+testing&location=" + userLat + ",%20" + userLng + "&radius=2000&" + apiKey)
     .then(function(response){
         return response.json();
     }).then(function(data){
+        console.log(data);
         if (markers!=[])
         {
             for (var i = 0; i < markers.length; i++)
@@ -466,18 +138,58 @@ var getLocationsDetails = function(event){
         .then(function(data){
             console.log(data);
             var clinicInfoHolder = $("#clinicInfo");
-            var header = $("<h3>").text(data.result.name), img = $("<img>").attr("href", data.result.icon);
-            var ratingInfo = $("<p>").text(data.result.rating + " (" + data.result.user_ratings_total + ")");
-            var number = $("<p>").text(data.result.formatted_phone_number);
-            var website = $("<p>").text(data.result.website);
-            var hoursList = $("<ul>");
-            for (var i = 0; i < 7; i++)
+            var header = $("<h2>").text(data.result.name), img = $("<img>").attr("src", data.result.icon);
+            var starsDiv = $("<div>").attr("id", "clinic-rating");
+            if (data.result.rating )
             {
-                // var open = data.result.opening_hours.periods[i].open;
-                var dailyHours = $("<li>").text(data.result.opening_hours.weekday_text[i]);
-                hoursList.append(dailyHours);
+                for (var i = 0; i < 5; i++)
+                {
+                    var star;
+                    if (data.result.rating > i && data.result.rating >= i+1)
+                    {
+                        star = $("<i>").attr("class", "fas fa-star");
+                    }
+                    else if (data.result.rating > i && data.result.rating < i+1)
+                    {
+                        star = $("<i>").attr("class", "fas fa-star-half-alt");
+                    }
+                    else{
+                        star = $("<i>").attr("class", "fas fa-star dark-star");
+                    }
+                    starsDiv.append(star);
+                }
+                starsDiv.css("display","inline");
             }
-            clinicInfoHolder.append([header, img, "<br/>", ratingInfo, "<hr/>",  number, "<br/>", website, "<br/>", hoursList]);
+            var ratingInfo, number, website, hoursList;
+            if (data.result.user_ratings_total)
+            {
+                ratingInfo = $("<p>").text(" (" + data.result.user_ratings_total + ")").css("display","inline");
+            }
+            if(data.result.formatted_phone_number)
+            {
+                number = $("<div>").append([$("<i>").attr("class","fas fa-phone").css("display","inline").css("padding","0 1vw"),
+                 $("<p>").text(data.result.formatted_phone_number).css("display","inline")]);
+            }
+            if (data.result.website)
+            {
+                website = $("<div>").append([$("<i>").attr("class","far fa-window-restore").css("display","inline").css("padding","0 1vw"),
+                 $("<a>").text("Go to Website").css("display","inline").attr("href", data.result.website).attr("target","_blank")]);
+            }
+            if (data.result.opening_hours)
+            {
+                if (data.result.opening_hours.weekday_text[i])
+                {
+                    hoursList = $("<ul>");
+                    hoursList.prepend($("<i>").attr("class","fas fa-clock").css("padding","0 1vw"));
+                    for (var i = 0; i < 7; i++)
+                    {
+                        // var open = data.result.opening_hours.periods[i].open;
+                        var dailyHours = $("<li>").text(data.result.opening_hours.weekday_text[i]);
+                        hoursList.append(dailyHours);
+                    }
+            }
+        }
+        clinicInfoHolder.append([header, img, "<br/>", starsDiv, ratingInfo, "<hr/>",  number, "<br/>", website, "<br/>", hoursList]);
         })
     }
 }
