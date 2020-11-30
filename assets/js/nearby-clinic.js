@@ -1,6 +1,6 @@
 var apiKey = "key=AIzaSyDlvs56CLbiwW-Ty2IjXHoHcReR6nJNUAg";
 
-var searchBoxEl = $("#search-box-city"), searchBtn = $("#search-button");
+var searchBoxEl = $("#search-box-city"), searchBtn = $("#search-button"), locationButton = $("#current-location-button");
 var map, markers = [];
 var markersInfo = [];
 
@@ -17,24 +17,6 @@ function initMap() {
     styles: mapStyle
   }, 
  );
-  if (navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(
-          (granted_position) => {
-             userLat = granted_position.coords.latitude;
-             userLng = granted_position.coords.longitude;
-              const pos = {
-                  lat: userLat,
-                  lng: userLng,
-              };
-              map.setCenter(pos);
-              SearchByCustomLocation(userLat + "," + userLng);
-          },
-          (denied) => {
-
-            // searchBoxEl.css({"color":"red", "font-size":"1.5vw"}).val("Please specify your location");
-          }
-      )
-  }
 }
 
 var SearchByCustomLocation = function(input){
@@ -111,7 +93,6 @@ var searchClinics = function(lat, lng){
 
 var getLocationsDetails = function(event){
     var place_id = "";
-
     if (this instanceof google.maps.Marker)
     {
         for (var i = 0; i < markersInfo.length; i++)
@@ -154,7 +135,7 @@ var getLocationsDetails = function(event){
                         star = $("<i>").attr("class", "fas fa-star-half-alt");
                     }
                     else{
-                        star = $("<i>").attr("class", "fas fa-star dark-star");
+                        star = $("<i>").attr("class", "far fa-star");
                     }
                     starsDiv.append(star);
                 }
@@ -179,12 +160,18 @@ var getLocationsDetails = function(event){
             {
                 if (data.result.opening_hours.weekday_text[i])
                 {
+                    var dayOfWeek = moment().format("dddd");
                     hoursList = $("<ul>");
                     hoursList.prepend($("<i>").attr("class","fas fa-clock").css("padding","0 1vw"));
                     for (var i = 0; i < 7; i++)
                     {
-                        // var open = data.result.opening_hours.periods[i].open;
                         var dailyHours = $("<li>").text(data.result.opening_hours.weekday_text[i]);
+                        console.log(moment().format("dddd"));
+                        if (data.result.opening_hours.weekday_text[i].split(":")[0] === dayOfWeek)
+                        {
+                            
+                            dailyHours.attr("class", "has-text-white has-background-info").css("margin", "0");
+                        }
                         hoursList.append(dailyHours);
                     }
             }
@@ -194,6 +181,30 @@ var getLocationsDetails = function(event){
     }
 }
 
+var getLocalCoords = function(){
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            (granted_position) => {
+               userLat = granted_position.coords.latitude;
+               userLng = granted_position.coords.longitude;
+                const pos = {
+                    lat: userLat,
+                    lng: userLng,
+                };
+                map.setCenter(pos);
+                SearchByCustomLocation(userLat + "," + userLng);
+            },
+            (denied) => {
+  
+              // searchBoxEl.css({"color":"red", "font-size":"1.5vw"}).val("Please specify your location");
+            }
+        )
+    }
+}
+
+locationButton.on("click",function(clickEvent){
+    getLocalCoords();
+})
 searchBtn.on("click",function(clickEvent){
     SearchByCustomLocation(searchBoxEl.val());
 });
