@@ -34,14 +34,9 @@ var questions = [{
 //variables
 var current = 0;
 var answer = document.querySelectorAll(".answer");
-var healthScore = 0;
+var health = 0;
 var button = document.querySelector(".button");
-
-//get ready for next question
-//var nextQuestion = document.querySelector("#choices, #quiz-q").classList.addClass("hide");
-
-//display next question
-//var displayQuestion = document.querySelector("#choices, #quiz-q").classList.remove("hide");
+var btnStart = document.querySelector("#quizStart");
 
 //display if the user is not suspected to have COVID-19
 function allOk(event) {
@@ -60,126 +55,17 @@ for (button of answer) {
 
     button.addEventListener("click", function (event) {
 
-        //display 1st question
-        var userChoice0 = questions[0].q;
-
-        question.innerHTML = userChoice0;
-
-        document.querySelector("#yes").innerHTML = questions[current].ch[0]
-        document.querySelector("#no").innerHTML = questions[current].ch[1]
-
-        if (event.target.innerHTML === questions[0].a) {
-
-            getHelp();
-
+        if (event.target.innerHTML === questions[current].a) {
+            current++;
+            startQuiz();
         } else {
-
-            //display 2nd question
-            var userChoice1 = questions[1].q;
-
-            question.innerHTML = userChoice1;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
+            current++;
+            health++;
+            startQuiz();
         }
-
-
-        if (event.target.innerHTML === questions[1].a) {
-
-            //display 3rd question
-            healthScore++;
-            console.log(healthScore);
-
-            var userChoice2 = questions[2].q;
-
-            question.innerHTML = userChoice2;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
-
-        } else {
-
-            allOk();
-
-        }
-
-        if (event.target.innerHTML === questions[2].a) {
-
-            //display 4th question and increase healthScore
-            healthScore++;
-            console.log(healthScore);
-
-            var userChoice3 = questions[3].q;
-
-            question.innerHTML = userChoice3;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
-
-        } else {
-
-            //display 4th question
-            var userChoice3 = questions[3].q;
-
-            question.innerHTML = userChoice3;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
-        }
-
-
-        if (event.target.innerHTML === questions[3].a) {
-
-            //display 5th question and increase healthScore
-            healthScore++;
-            console.log(healthScore);
-
-            var userChoice4 = questions[4].q;
-
-            question.innerHTML = userChoice4;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
-
-        } else {
-
-            //display 5th question
-            var userChoice4 = questions[4].q;
-
-            question.innerHTML = userChoice4;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
-        }
-
-
-        if (event.target.innerHTML === questions[4].a) {
-
-            //display 6th question and increase healthScore
-            healthScore++;
-            console.log(healthScore);
-
-            var userChoice5 = questions[5].q;
-
-            question.innerHTML = userChoice5;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
-
-        } else {
-
-            //display 6th question
-            var userChoice5 = questions[5].q;
-
-            question.innerHTML = userChoice5;
-
-            document.querySelector("#yes").innerHTML = questions[current].ch[0]
-            document.querySelector("#no").innerHTML = questions[current].ch[1]
-        }
-
 
         //if health score if more than 1, run getHelp function, otherwise, run allOk function
-        if (healthScore > 0) {
+        if (health > 0) {
             getHelp();
         } else {
             allOk();
@@ -187,3 +73,19 @@ for (button of answer) {
 
     })
 }
+
+
+function startQuiz(event) {
+
+    var question = document.getElementById("quiz-q");
+    var userChoice = questions[current].q;
+    question.innerHTML = userChoice;
+    document.querySelector("#quizStart").classList.add("hide");
+    document.querySelector("#intro").classList.add("hide");
+    document.querySelector("#choices").classList.remove("hide");
+    document.querySelector("#quiz-q").classList.remove("hide");
+
+    document.querySelector("#yes").innerHTML = questions[current].ch[0]
+    document.querySelector("#no").innerHTML = questions[current].ch[1]
+}
+

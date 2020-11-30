@@ -53,7 +53,7 @@
     </section>
 
     <!--quiz body-->
-    <div class="container my-6">
+    <div class="container my-6" id="intro">
         <h2 class="has-text-centered is-size-5 has-text-weight-normal mb-6 pb-4 is-12">
             Do you believe you have been infected with COVID-19? Complete this self-assessment and we'll help determine what your next steps should be.
         </h2>
@@ -64,12 +64,15 @@
         <div class="tile is-parent is-vertical box is-6">
             <div class="tile is-child">
                 <!--display question-->
-                <h3 class="has-text-centered is-size-5 has-text-weight-medium mb-3" id="quiz-q"></h3>
+                <h3 class="has-text-centered is-size-5 has-text-weight-medium mb-3 hide" id="quiz-q" ></h3>
             </div>
-            <div class="tile is-child buttons are-medium " id="choices">
-                <button id="yes" class="m-3 is-light is-fullwidth button answer">Yes</button>
+            <div class="tile is-child" id="quizStart">
+                <button class="button is-fullwidth is-medium is-rounded is-primary" onclick="startQuiz()">Start Self-Assesment!</button>
+            </div>
+            <div class="tile is-child buttons are-medium hide" id="choices">
+                <button id="yes" class="m-3 is-light is-fullwidth button answer"></button>
                 <br>
-                <button id="no" class="m-3 is-light is-fullwidth button answer">No</button>
+                <button id="no" class="m-3 is-light is-fullwidth button answer"></button>
             </div>
         </div>
         <div class="tile is-parent is-3"></div>
