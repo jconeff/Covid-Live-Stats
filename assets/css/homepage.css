@@ -4,9 +4,21 @@
 }
 .footer {
     background-color: hsla(171, 100%, 41%, 0.103);
+<<<<<<< HEAD
 }
 
 
+
+#us-map{
+  
+    
+    position: center;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 40%;
+    margin:auto;
+  }
   path:hover, circle:hover {
     stroke: #002868 !important;
     stroke-width:2px;
@@ -30,4 +42,33 @@
     border-radius: 5px;
     padding: 5px;
     font-family: arial;
+  }
+
+
+
+
+  
+  
+  .brightred {
+    background: #f02f05;
+  }
+  
+  .medred {
+    background: #e55039;
+  }
+  
+  .darkorange {
+    background: #fa983a;
+  }
+
+  .lightorange {
+    background: #fcae62;
+  }
+
+  .box2 {
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
   }
