@@ -330,7 +330,10 @@ var mapStyle = [
 
 var apiKey = "key=AIzaSyDlvs56CLbiwW-Ty2IjXHoHcReR6nJNUAg";
 
-var map, searchBoxEl = $("#search-box-city"), searchBtn = $("#search-button");
+var searchBoxEl = $("#search-box-city"), searchBtn = $("#search-button");
+var map, markers = [];
+var markersInfo = [];
+
 function initMap() {
   var userLat, userLng;
   map = new google.maps.Map(document.getElementById('localMap'), {
@@ -344,7 +347,6 @@ function initMap() {
     styles: mapStyle
   }, 
  );
-  map
   if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(
           (granted_position) => {
@@ -388,7 +390,7 @@ var SearchByCustomLocation = function(input){
                 lng: userLng,
             };
             map.setCenter(pos);
-            searchClinic(userLat, userLng);
+            searchClinics(userLat, userLng);
         })
     }
     else{
@@ -396,13 +398,23 @@ var SearchByCustomLocation = function(input){
     }
 }
 
-var searchClinic = function(lat, lng){
+var searchClinics = function(lat, lng){
     fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?"+
     "query=coronavirus+test+&location=" + userLat + ",%20" + userLng + "&radius=3000&" + apiKey)
     .then(function(response){
         return response.json();
     }).then(function(data){
-        console.log(data);
+        if (markers!=[])
+        {
+            for (var i = 0; i < markers.length; i++)
+            {
+                markers[i].setMap(null);
+            }
+            google.maps.event.trigger(map, 'resize');
+            markers = [];
+        }
+        // console.log(data);
+        markersInfo = [];
         for (var i = 0; i < 13; i++)
         {
             const pos = { 
@@ -414,10 +426,60 @@ var searchClinic = function(lat, lng){
                 map: map,
                 animation: google.maps.Animation.DROP
               });
+            markers.push(marker);
+            var place = {pos, place_id: data.results[i].place_id};
+            // marker.addListener("click", getLocationsDetails(data.results[i].place_id));
+            markersInfo.push(place);
+            google.maps.event.addListener(marker, "click", getLocationsDetails);
         }
 
         google.maps.event.trigger(map, 'resize');
     })
+}
+
+var getLocationsDetails = function(event){
+    var place_id = "";
+
+    if (this instanceof google.maps.Marker)
+    {
+        for (var i = 0; i < markersInfo.length; i++)
+        {
+            if (this.getPosition().lat() === markersInfo[i].pos.lat &&
+            this.getPosition().lng() === markersInfo[i].pos.lng)
+            {
+                place_id = markersInfo[i].place_id;
+                break;
+            }
+        }
+    }
+    if (place_id != "")
+    {
+        $("#clinicInfo").empty();
+        console.log(place_id);
+        fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?" +
+        "place_id=" + place_id + "&" +
+        "fields=name,rating,formatted_phone_number,user_ratings_total," +
+        "formatted_address,opening_hours,reviews,website,icon,name&" + apiKey)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            console.log(data);
+            var clinicInfoHolder = $("#clinicInfo");
+            var header = $("<h3>").text(data.result.name), img = $("<img>").attr("href", data.result.icon);
+            var ratingInfo = $("<p>").text(data.result.rating + " (" + data.result.user_ratings_total + ")");
+            var number = $("<p>").text(data.result.formatted_phone_number);
+            var website = $("<p>").text(data.result.website);
+            var hoursList = $("<ul>");
+            for (var i = 0; i < 7; i++)
+            {
+                // var open = data.result.opening_hours.periods[i].open;
+                var dailyHours = $("<li>").text(data.result.opening_hours.weekday_text[i]);
+                hoursList.append(dailyHours);
+            }
+            clinicInfoHolder.append([header, img, "<br/>", ratingInfo, "<hr/>",  number, "<br/>", website, "<br/>", hoursList]);
+        })
+    }
 }
 
 searchBtn.on("click",function(clickEvent){
