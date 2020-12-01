@@ -1,3 +1,6 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
 body{
     background: rgba(255, 255, 255, 0) url(../images/back.jpg) no-repeat fixed center ;
     background-size: cover;

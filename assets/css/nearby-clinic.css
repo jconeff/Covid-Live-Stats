@@ -11,6 +11,11 @@
     background-position: right;
     transform: rotate(2deg);
 }
+
+.clinic-map-info-wrapper h2,p,ul,li,a{
+    font-family: 'Schoolbell', cursive;
+}
+
 #localMapWrapper {
     transform: rotate(-1deg);
     background-color: rgba(255, 255, 255, 0);
