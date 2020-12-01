@@ -59,7 +59,6 @@ var searchClinics = function(lat, lng){
     .then(function(response){
         return response.json();
     }).then(function(data){
-        console.log(data);
         if (markers!=[])
         {
             for (var i = 0; i < markers.length; i++)
@@ -104,7 +103,8 @@ var searchClinics = function(lat, lng){
             var marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                animation: google.maps.Animation.DROP
+                animation: google.maps.Animation.DROP,
+                icon: "assets\\images\\hospital-marker.png"
               });
             markers.push(marker);
             var place = {pos, place_id: data.results[i].place_id};
