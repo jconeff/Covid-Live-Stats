@@ -9,6 +9,8 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('localMap'), {
     center: {lat: 40.7128, lng: -74.0060},
     zoom: 12,
+    minZoom: 
+    9, maxZoom: 14,
     mapTypeControl: false,
     streetViewControl: false,
     fullScreenControl: false,
@@ -86,12 +88,40 @@ var searchClinics = function(lat, lng){
             markersInfo.push(place);
             google.maps.event.addListener(marker, "click", getLocationsDetails);
         }
+    });
+    fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + userLat 
+    + ",%20" + userLng + "&radius=4000&" + "&type=hospital&" + apiKey)
+    .then(function(response){
+        return response.json();
+    }).then(function(data){
+        // console.log("second fetch", data);
+        for (var i = 0; i < 7; i++)
+        {
+            const pos = { 
+                lat: data.results[i].geometry.location.lat,
+                lng: data.results[i].geometry.location.lng
+            }   
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                animation: google.maps.Animation.DROP
+              });
+            markers.push(marker);
+            var place = {pos, place_id: data.results[i].place_id};
+            // marker.addListener("click", getLocationsDetails(data.results[i].place_id));
+            markersInfo.push(place);
+            google.maps.event.addListener(marker, "click", getLocationsDetails);
+        }
 
         google.maps.event.trigger(map, 'resize');
     })
 }
 
 var getLocationsDetails = function(event){
+    $("#clinicInfo").empty();
+    var waitIcon = $("<i>").attr("class","fas fa-spinner fa-spin").css("font-size","2rem");
+    $("#clinicInfo").append(waitIcon);
+    console.log($("#clinicInfo"));
     var place_id = "";
     if (this instanceof google.maps.Marker)
     {
@@ -107,8 +137,6 @@ var getLocationsDetails = function(event){
     }
     if (place_id != "")
     {
-        $("#clinicInfo").empty();
-        console.log(place_id);
         fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?" +
         "place_id=" + place_id + "&" +
         "fields=name,rating,formatted_phone_number,user_ratings_total," +
@@ -117,8 +145,9 @@ var getLocationsDetails = function(event){
             return response.json();
         })
         .then(function(data){
-            console.log(data);
+            // console.log(data);
             var clinicInfoHolder = $("#clinicInfo");
+            clinicInfoHolder.empty();
             var header = $("<h2>").text(data.result.name), img = $("<img>").attr("src", data.result.icon);
             var starsDiv = $("<div>").attr("id", "clinic-rating");
             if (data.result.rating )
