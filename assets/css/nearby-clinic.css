@@ -1,6 +1,11 @@
 #body{
     margin-bottom: 0;
 }
+
+header{
+    
+}
+
 .clinic-map-info-wrapper{
     min-height: 550px;
     margin: 2vw 5rem;
@@ -12,7 +17,8 @@
     transform: rotate(2deg);
 }
 
-.clinic-map-info-wrapper h2,p,ul,li,a{
+.clinic-map-info-wrapper h2,.clinic-map-info-wrapper p,.clinic-map-info-wrapper ul,
+.clinic-map-info-wrapper li,.clinic-map-info-wrapper a{
     font-family: 'Schoolbell', cursive;
 }
 
