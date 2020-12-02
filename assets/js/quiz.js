@@ -38,16 +38,6 @@ var health = 0;
 var button = document.querySelector(".button");
 var btnStart = document.querySelector("#quizStart");
 
-//display if the user is not suspected to have COVID-19
-function allOk(event) {
-
-}
-
-//display if the user is suspected of having COVID-19
-function getHelp(event) {
-
-}
-
 //display series of questions
 for (button of answer) {
 
@@ -63,17 +53,9 @@ for (button of answer) {
             health++;
             startQuiz();
         }
-
-        //if health score if more than 1, run getHelp function, otherwise, run allOk function
-        if (health > 0) {
-            getHelp();
-        } else {
-            allOk();
-        }
-
+        endQuiz();
     })
 }
-
 
 function startQuiz(event) {
 
@@ -89,3 +71,23 @@ function startQuiz(event) {
     document.querySelector("#no").innerHTML = questions[current].ch[1]
 }
 
+function endQuiz(event) {
+
+    if (health > 0) {
+        //display if the user is not suspected to have COVID-19
+        document.querySelector("#quiz-body").classList.add("hide");
+        $("#quiz-container").append(`
+    <div class="tile is-parent is-vertical box is-6">
+        <p>get help</p>
+    </div>
+    `)
+    } else {
+        //display if the user is suspected of having COVID-19
+        document.querySelector("#quiz-body").classList.add("hide");
+        $("#quiz-container").append(`
+    <div class="tile is-parent is-vertical box is-6">
+        <p>all ok</p>
+    </div>
+    `)
+    }
+}
