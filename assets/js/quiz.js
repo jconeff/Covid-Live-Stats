@@ -38,23 +38,26 @@ var health = 0;
 var button = document.querySelector(".button");
 var btnStart = document.querySelector("#quizStart");
 
-//display series of questions
-for (button of answer) {
+if (current < questions.length) {
+    //display series of questions
+    for (button of answer) {
 
-    var question = document.getElementById("quiz-q");
+        var question = document.getElementById("quiz-q");
 
-    button.addEventListener("click", function (event) {
+        button.addEventListener("click", function (event) {
 
-        if (event.target.innerHTML === questions[current].a) {
-            current++;
-            startQuiz();
-        } else {
-            current++;
-            health++;
-            startQuiz();
-        }
-        endQuiz();
-    })
+            if (event.target.innerHTML === questions[current].a) {
+                current++;
+                startQuiz();
+            } else {
+                current++;
+                health++;
+                startQuiz();
+            }
+        })
+    }
+} else {
+    endQuiz();
 }
 
 function startQuiz(event) {
@@ -78,7 +81,7 @@ function endQuiz(event) {
         document.querySelector("#quiz-body").classList.add("hide");
         $("#quiz-container").append(`
     <div class="tile is-parent is-vertical box is-6">
-        <p>get help</p>
+        <p>all ok</p>
     </div>
     `)
     } else {
@@ -86,7 +89,7 @@ function endQuiz(event) {
         document.querySelector("#quiz-body").classList.add("hide");
         $("#quiz-container").append(`
     <div class="tile is-parent is-vertical box is-6">
-        <p>all ok</p>
+        <p>get help</p>
     </div>
     `)
     }
