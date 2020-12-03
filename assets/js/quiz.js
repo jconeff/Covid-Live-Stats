@@ -38,26 +38,29 @@ var health = 0;
 var button = document.querySelector(".button");
 var btnStart = document.querySelector("#quizStart");
 
-if (current < questions.length) {
-    //display series of questions
-    for (button of answer) {
 
-        var question = document.getElementById("quiz-q");
+//display series of questions
+for (button of answer) {
 
-        button.addEventListener("click", function (event) {
+    var question = document.getElementById("quiz-q");
+
+    button.addEventListener("click", function (event) {
+
+        //loop through the questions and run endQuiz function after the last question
+        if (current < questions.length - 1) {
 
             if (event.target.innerHTML === questions[current].a) {
+                health = health - 1;
                 current++;
                 startQuiz();
             } else {
                 current++;
-                health++;
                 startQuiz();
             }
-        })
-    }
-} else {
-    endQuiz();
+        } else {
+            endQuiz();
+        }
+    })
 }
 
 function startQuiz(event) {
@@ -76,21 +79,31 @@ function startQuiz(event) {
 
 function endQuiz(event) {
 
-    if (health > 0) {
+    document.querySelector("#question").classList.add("hide");
+    document.querySelector("#choices").classList.add("hide");
+    //document.querySelector("#quizStart").classList.add("hide");
+
+    if (health >= 0) {
         //display if the user is not suspected to have COVID-19
-        document.querySelector("#quiz-body").classList.add("hide");
-        $("#quiz-container").append(`
-    <div class="tile is-parent is-vertical box is-6">
-        <p>all ok</p>
-    </div>
-    `)
+        var resultBody = document.createElement("div");
+        resultBody.className = "tile is-child";
+        var resultText = document.createElement("h3");
+        resultText.textContext = "all ok";
+        resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
+
+        resultBody.appendChild(resultText);
+        document.querySelector("#quiz-body").appendChild(resultBody);
+    
     } else {
         //display if the user is suspected of having COVID-19
-        document.querySelector("#quiz-body").classList.add("hide");
-        $("#quiz-container").append(`
-    <div class="tile is-parent is-vertical box is-6">
-        <p>get help</p>
-    </div>
-    `)
-    }
+        var resultBody = document.createElement("div");
+        resultBody.className = "tile is-child";
+        var resultText = document.createElement("h3");
+        resultText.textContext = "get help";
+        resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
+
+        resultBody.appendChild(resultText);
+        document.querySelector("#quiz-body").appendChild(resultBody);
+    } 
 }
+
