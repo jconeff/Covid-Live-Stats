@@ -48,7 +48,6 @@ for (button of answer) {
 
         //loop through the questions and run endQuiz function after the last question
         if (current < questions.length - 1) {
-
             if (event.target.innerHTML === questions[current].a) {
                 health = health - 1;
                 current++;
@@ -75,14 +74,40 @@ function startQuiz(event) {
 
     document.querySelector("#yes").innerHTML = questions[current].ch[0]
     document.querySelector("#no").innerHTML = questions[current].ch[1]
+
+    //progress bar
+    if (current === 0) {
+        document.querySelector(".prog-1").classList.remove("hide");
+    }
+    if (current === 1) {
+        document.querySelector(".prog-1").classList.add("hide");
+        document.querySelector(".prog-2").classList.remove("hide");
+    }
+    if (current === 2) {
+        document.querySelector(".prog-2").classList.add("hide");
+        document.querySelector(".prog-3").classList.remove("hide");
+    }
+    if (current === 3) {
+        document.querySelector(".prog-3").classList.add("hide");
+        document.querySelector(".prog-4").classList.remove("hide");
+    }
+    if (current === 4) {
+        document.querySelector(".prog-4").classList.add("hide");
+        document.querySelector(".prog-5").classList.remove("hide");
+    }
+    if (current === 5) {
+        document.querySelector(".prog-5").classList.add("hide");
+        document.querySelector(".prog-6").classList.remove("hide");
+    }
 }
 
 function endQuiz(event) {
 
+    //ready page to display diagnosis
     document.querySelector("#quiz-body").classList.add("hide");
     document.querySelector("#question").classList.add("hide");
     document.querySelector("#choices").classList.add("hide");
-    //document.querySelector("#quizStart").classList.add("hide");
+    document.querySelector("#progress-bar").classList.add("hide");
 
     if (health >= 0) {
         //display if the user is not suspected to have COVID-19
@@ -90,42 +115,55 @@ function endQuiz(event) {
         resultBody.className = "tile is-child";
 
         var resultText = document.createElement("h3");
-        resultText.textContent = "It seems that you are okay! To stay informed on the most up-to-date COVID-19 stats, please vsit the link below.";
-        resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
-
-        var linkBody = document.createElement("div");
-        linkBody.className = "tile is-child";  
-        var resultLink = document.createElement("button");
-        resultLink.textContent = "Click here to find a clinic near you!"
-        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary"
-        resultLink.setAttribute("href", "essentials.html")
-
-        //append creted items
-        document.querySelector("#quiz-body").appendChild(resultBody);
-        resultBody.appendChild(resultText);
-        document.querySelector("#quiz-container").appendChild(linkBody);
-        linkBody.appendChild(resultLink);
-    
-    } else {
-        //display if the user is suspected of having COVID-19
-        var resultBody = document.createElement("div");
-        resultBody.className = "tile is-child";
-        var resultText = document.createElement("h3");
-        resultText.textContent = "You may be eligible for COVID-19 testing. Please click the link below to view the clinics near you, or contact your health care provider for more information.";
+        resultText.textContent = "It seems that you are okay! To stay informed on the most up-to-date COVID-19 stats, or to browse COVID-19 essentials, please visit the link below:";
         resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
 
         var linkBody = document.createElement("div");
         linkBody.className = "tile is-child";
+
+        //live stats button
         var resultLink = document.createElement("button");
-        resultLink.textContent = "Click here see the most up-to-date stats in you state!"
-        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary"
-        resultLink.setAttribute("href", "index.html")
+        resultLink.textContent = "COVID-19 Live Stats";
+        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary";
+        resultLink.setAttribute("href", "index.html");
+
+        //essentials button
+        var linkBody2 = document.createElement("div");
+        linkBody2.className = "tile is-child";
+        var resultLink2 = document.createElement("button");
+        resultLink2.textContent = "COVID-19 Essentials";
+        resultLink2.className = "button is-fullwidth is-medium is-rounded is-primary";
+        resultLink2.setAttribute("href", "essentials.html");
+
+        //append creted items
+        document.querySelector("#result-container").appendChild(resultBody);
+        resultBody.appendChild(resultText);
+        document.querySelector("#quiz-body").appendChild(linkBody);
+        linkBody.appendChild(resultLink);
+        document.querySelector("#quiz-body").appendChild(linkBody2);
+        linkBody2.appendChild(resultLink2);
+
+    } else {
+        //display if the user is suspected of having COVID-19
+        var resultBody = document.createElement("div");
+        resultBody.className = "tile is-child";
+
+        var resultText = document.createElement("h3");
+        resultText.textContent = "You may be eligible for COVID-19 testing. Please click the link below to view the clinics near you. Contact your health care provider for more information.";
+        resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
+
+        //clinics near you button
+        var linkBody = document.createElement("div");
+        linkBody.className = "tile is-child";
+        var resultLink = document.createElement("button");
+        resultLink.textContent = "Clinics Near You";
+        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary";
+        resultLink.setAttribute("href", "essentials.html");
 
         //append created items
-        document.querySelector("#quiz-body").appendChild(resultBody);
+        document.querySelector("#result-container").appendChild(resultBody);
         resultBody.appendChild(resultText);
-        document.querySelector("#quiz-container").appendChild(linkBody);
+        document.querySelector("#quiz-body").appendChild(linkBody);
         linkBody.appendChild(resultLink);
-    } 
+    }
 }
-
