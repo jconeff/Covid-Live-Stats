@@ -79,7 +79,7 @@ for (apiState of stateData) {
         }
 
         //Daily positive cases
-        map.setAttribute('data-info',"Positive:" + [apiState.positiveIncrease,'Deaths:'+apiState.deathIncrease,'Hospitalized:'+apiState.hospitalizedIncrease])
+        map.setAttribute('data-info',['Positive:' + apiState.positiveIncrease,'Deaths:'+apiState.deathIncrease,'Hospitalized:'+apiState.hospitalizedIncrease])
         
         
     }
