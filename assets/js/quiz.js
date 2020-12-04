@@ -79,6 +79,7 @@ function startQuiz(event) {
 
 function endQuiz(event) {
 
+    document.querySelector("#quiz-body").classList.add("hide");
     document.querySelector("#question").classList.add("hide");
     document.querySelector("#choices").classList.add("hide");
     //document.querySelector("#quizStart").classList.add("hide");
@@ -87,23 +88,44 @@ function endQuiz(event) {
         //display if the user is not suspected to have COVID-19
         var resultBody = document.createElement("div");
         resultBody.className = "tile is-child";
+
         var resultText = document.createElement("h3");
-        resultText.textContext = "all ok";
+        resultText.textContent = "It seems that you are okay! To stay informed on the most up-to-date COVID-19 stats, please vsit the link below.";
         resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
 
-        resultBody.appendChild(resultText);
+        var linkBody = document.createElement("div");
+        linkBody.className = "tile is-child";  
+        var resultLink = document.createElement("button");
+        resultLink.textContent = "Click here to find a clinic near you!"
+        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary"
+        resultLink.setAttribute("href", "essentials.html")
+
+        //append creted items
         document.querySelector("#quiz-body").appendChild(resultBody);
+        resultBody.appendChild(resultText);
+        document.querySelector("#quiz-container").appendChild(linkBody);
+        linkBody.appendChild(resultLink);
     
     } else {
         //display if the user is suspected of having COVID-19
         var resultBody = document.createElement("div");
         resultBody.className = "tile is-child";
         var resultText = document.createElement("h3");
-        resultText.textContext = "get help";
+        resultText.textContent = "You may be eligible for COVID-19 testing. Please click the link below to view the clinics near you, or contact your health care provider for more information.";
         resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
 
-        resultBody.appendChild(resultText);
+        var linkBody = document.createElement("div");
+        linkBody.className = "tile is-child";
+        var resultLink = document.createElement("button");
+        resultLink.textContent = "Click here see the most up-to-date stats in you state!"
+        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary"
+        resultLink.setAttribute("href", "index.html")
+
+        //append created items
         document.querySelector("#quiz-body").appendChild(resultBody);
+        resultBody.appendChild(resultText);
+        document.querySelector("#quiz-container").appendChild(linkBody);
+        linkBody.appendChild(resultLink);
     } 
 }
 
