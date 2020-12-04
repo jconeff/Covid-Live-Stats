@@ -1,15 +1,61 @@
+#body{
+    margin-bottom: 0;
+}
+
+.clinic-map-info-wrapper{
+    min-height: 550px;
+    margin: 2vw 5rem;
+    border-radius: 3%;
+    background-image: url(../images/notebook-texture.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    transform: rotate(2deg);
+}
+
+.clinic-map-info-wrapper h2,.clinic-map-info-wrapper p,.clinic-map-info-wrapper ul,
+.clinic-map-info-wrapper li,.clinic-map-info-wrapper a{
+    font-family: 'Schoolbell', cursive;
+}
+
 #localMapWrapper {
-    height: 500px;
+    transform: rotate(-1deg);
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url(../images/notepad-texture.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -30px;
+    padding: 1% 1.5% 1% 8.5%;
+    color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    border-radius: 2%;
+    border-top-left-radius: 12%;
+    border-bottom-left-radius: 10%;;
 }
 
 #localMap {
+    border: rgba(0, 0, 0, 0.5) dashed 2px;
+    box-shadow: none;
     width: 100%;
-    height: 100%;
+    height: 80%;
+    margin: 3vw;
 }
 
 #clinicInfo{
     overflow-y: scroll;
     display: inline;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+}
+
+#clinicInfo hr{
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+    width: 90%;
+    border-radius: 5%;
 }
 
 #clinicInfo h2{
@@ -25,8 +71,15 @@
     padding: 0 3%;
 }
 
+#search-input-wrapper{
+    background-color: white;
+    margin-bottom: 1vw;
+    padding: 0 1vw 1vw 1vw;
+}
+
 #search-box-city{
     width: 80%;
+    display: inline;
 }
 
 #search-button{
@@ -48,8 +101,4 @@
     display: flex;
     font-size: 1rem;
     color: gold;
-}
-
-.dark-star{
-    color: gray;
 }
