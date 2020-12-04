@@ -24,15 +24,15 @@
                             <!--logo-->
                             <img src="https://image.flaticon.com/icons/png/512/2833/2833315.png" alt="Logo">
                             <!--page title-->
-                            <h1 class="title">
-                                &nbspCovid Live Stats and Support
+                            <h1 class="title mb-1">
+                                COVID-19 Support
                             </h1>
                         </a>
-                        <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
                     </div>
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <!--navbar menu-->
@@ -56,34 +56,51 @@
         </div>
     </section>
 
-    <!--quiz body-->
-    <div class="container my-6" id="intro">
-        <h2 class="has-text-centered is-size-5 has-text-weight-normal mb-6 pb-4 is-12">
-            Do you believe you have been infected with COVID-19? Complete this self-assessment and we'll help determine what your next steps should be.
+    <!--quiz intro-->
+    <div class="container my-6">
+        <h2 class="has-text-centered is-size-5 has-text-weight-normal mb-6 pb-4 is-12" id="intro">
+            Do you believe you have been infected with COVID-19? Complete this self-assessment and we'll help determine
+            what your next steps should be.
         </h2>
+        <!--progress bar-->
+        <div id="progress-bar">
+            <progress class="progress is-primary is-small prog-1 hide" value="16.67" max="100">1/6</progress>
+            <progress class="progress is-primary is-small prog-2 hide" value="33.33" max="100">2/6</progress>
+            <progress class="progress is-primary is-small prog-3 hide" value="50.1" max="100">3/6</progress>
+            <progress class="progress is-primary is-small prog-4 hide" value="66.67" max="100">4/6</progress>
+            <progress class="progress is-primary is-small prog-5 hide" value="83.34" max="100">5/6</progress>
+            <progress class="progress is-primary is-small prog-6 hide" value="100" max="100">6/6</progress>
+        </div>
     </div>
-    <div class="tile is-ancestor box">
+
+    <!--quiz body-->
+    <div class="tile is-ancestor box" id="quiz-container">
         <div class="tile is-parent is-3"></div>
-        <!--quiz body-->
-        <div class="tile is-parent is-vertical box is-6">
-            <div class="tile is-child">
+        <div class="tile is-parent is-vertical box is-6" id="quiz-body">
+            <div class="tile is-child" id="question">
                 <!--display question-->
-                <h3 class="has-text-centered is-size-5 has-text-weight-medium mb-3 hide" id="quiz-q" ></h3>
+                <h3 class="has-text-centered is-size-5 has-text-weight-medium mb-3 hide" id="quiz-q"></h3>
             </div>
             <div class="tile is-child" id="quizStart">
-                <button class="button is-fullwidth is-medium is-rounded is-primary" onclick="startQuiz()">Start Self-Assesment!</button>
+                <button class="button is-fullwidth is-medium is-rounded is-primary" onclick="startQuiz()">Start
+                    Self-Assesment!</button>
             </div>
             <div class="tile is-child buttons are-medium hide" id="choices">
-                <button id="yes" class="m-3 is-light is-fullwidth button answer"></button>
+                <button id="yes" class=" is-light is-fullwidth button answer"></button>
                 <br>
-                <button id="no" class="m-3 is-light is-fullwidth button answer"></button>
+                <button id="no" class=" is-light is-fullwidth button answer"></button>
             </div>
+            <div class="tile is-child" id="result-container"></div>
         </div>
         <div class="tile is-parent is-3"></div>
     </div>
+
+    <!--disclaimer-->
     <div class="container my-6">
         <h4 class="has-text-centered is-size-6 has-text-weight-medium mb-6 pb-4 is-12">
-            This information is based on <a href="https://www.cdc.gov/coronavirus/2019-nCoV/index.html">Centers for Disease Control and Prevention (CDC) guidelines</a>. Please do not use this tool to confirm a diagnosis for COVID-19.
+            This information is based on <a href="https://www.cdc.gov/coronavirus/2019-nCoV/index.html">Centers for
+                Disease Control and Prevention (CDC) guidelines</a>. Please do not use this tool to confirm a diagnosis
+            for COVID-19.
         </h4>
     </div>
 
