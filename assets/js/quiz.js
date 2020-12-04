@@ -158,7 +158,7 @@ function endQuiz(event) {
         var resultLink = document.createElement("button");
         resultLink.textContent = "Clinics Near You";
         resultLink.className = "button is-fullwidth is-medium is-rounded is-primary";
-        resultLink.setAttribute("href", "essentials.html");
+        resultLink.setAttribute("href", "nearby-clinic.html");
 
         //append created items
         document.querySelector("#result-container").appendChild(resultBody);
