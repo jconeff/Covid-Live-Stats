@@ -1,20 +1,29 @@
-/* <<<<<<< HEAD
-=======
->>>>>>> 2289ea2f7a010d36f6f5972b8b2210a123557047 */
+.hero {
+    background-color: #002868;
+}
+
+.navbar-item {
+    color: white;
+    border-radius: 7px;
+}
+
+a.navbar-item:hover {
+    color: #68B1E8;
+    background-color: rgba(255, 255, 255, 0.164);
+
+}
+
+.active {
+    color: #68B1E8;
+    background-color: rgba(255, 255, 255, 0.164);
+}
+
 .title {
     color: hsl(0, 0%, 96%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .footer {
-    background-color: hsla(171, 100%, 41%, 0.103);
+    background-color: #68b1e846;
+
 }
-/* <<<<<<< HEAD
-}
-=======
-<<<<<<< HEAD
-}
->>>>>>> main
-=======
-}
->>>>>>> main
->>>>>>> 2289ea2f7a010d36f6f5972b8b2210a123557047 */
