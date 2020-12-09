@@ -15,7 +15,7 @@ var questions = [{
         a: "Yes"
     },
     {
-        q: "Do you have any of the following: Fever, Cough, Mild or moderate dificulty breathing, Sore throat, Body ache, Vomiting or diarrhea, New loss of taste or smell, congestion or runny nose, other symptoms",
+        q: "Do you have any of the following: fever, cough, mild or moderate dificulty breathing, sore throat, body ache, vomiting or diarrhea, new loss of taste or smell, congestion or runny nose, other symptoms",
         ch: ["Yes", "No"],
         a: "Yes"
     },
@@ -101,6 +101,7 @@ function startQuiz(event) {
     }
 }
 
+//show end quiz buttons
 function endQuiz(event) {
 
     //ready page to display diagnosis
@@ -112,11 +113,11 @@ function endQuiz(event) {
     if (health >= 0) {
         //display if the user is not suspected to have COVID-19
         var resultBody = document.createElement("div");
-        resultBody.className = "tile is-child";
+        resultBody.className = "tile is-child p-5 m-6";
 
         var resultText = document.createElement("h3");
-        resultText.textContent = "It seems that you are okay! To stay informed on the most up-to-date COVID-19 stats, or to browse COVID-19 essentials, please visit the link below:";
-        resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
+        resultText.textContent = "It seems that you are okay! To stay informed on the most up-to-date COVID-19 stats, or to browse COVID-19 essentials, please visit one of the links below:";
+        resultText.className = "has-text-centered is-size-4 has-text-weight-medium mb-3";
 
         //live stats button
         var linkBody = document.createElement("a");
@@ -124,7 +125,7 @@ function endQuiz(event) {
         linkBody.setAttribute("href", "index.html");
         var resultLink = document.createElement("button");
         resultLink.textContent = "COVID-19 Live Stats";
-        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary";
+        resultLink.className = "button is-fullwidth is-medium btn-quiz";
 
         //essentials button
         var linkBody2 = document.createElement("a");
@@ -132,7 +133,7 @@ function endQuiz(event) {
         linkBody2.setAttribute("href", "essentials.html");
         var resultLink2 = document.createElement("button");
         resultLink2.textContent = "COVID-19 Essentials";
-        resultLink2.className = "button is-fullwidth is-medium is-rounded is-primary";
+        resultLink2.className = "button is-fullwidth is-medium btn-quiz";
 
         //append creted items
         document.querySelector("#result-container").appendChild(resultBody);
@@ -145,11 +146,11 @@ function endQuiz(event) {
     } else {
         //display if the user is suspected of having COVID-19
         var resultBody = document.createElement("div");
-        resultBody.className = "tile is-child";
+        resultBody.className = "tile is-child p-5 m-6";
 
         var resultText = document.createElement("h3");
         resultText.textContent = "You may be eligible for COVID-19 testing. Please click the link below to view the clinics near you. Contact your health care provider for more information.";
-        resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
+        resultText.className = "has-text-centered is-size-4 has-text-weight-medium mb-3";
 
         //clinics near you button
         var linkBody = document.createElement("a");
@@ -157,7 +158,7 @@ function endQuiz(event) {
         linkBody.setAttribute("href", "nearby-clinic.html");
         var resultLink = document.createElement("button");
         resultLink.textContent = "Clinics Near You";
-        resultLink.className = "button is-fullwidth is-medium is-rounded is-primary";
+        resultLink.className = "button is-fullwidth is-medium btn-quiz";
 
         //append created items
         document.querySelector("#result-container").appendChild(resultBody);

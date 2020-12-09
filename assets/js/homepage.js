@@ -104,10 +104,10 @@ for (apiState of stateData) {
         //end of creat comma
 
         //Daily positive cases
-        map.setAttribute('data-info',['Positive: ' + apiState.positiveIncrease,'Deaths: '+apiState.deathIncrease,'Hospitalized: '+apiState.hospitalizedIncrease])
-        totalpos.textContent = 'Total New Daily Positive Cases: ' + totalCases;
-        totaldeath.textContent = 'Total New Daily Deaths: ' + totalDeaths;
-        totalhosp.textContent = 'Total New Daily Hospitalized: ' + totalHospital;
+        map.setAttribute('data-info',[' Positive: ' + apiState.positiveIncrease,' Deaths: '+apiState.deathIncrease,' Hospitalized: '+apiState.hospitalizedIncrease])
+        totalpos.textContent = 'Total Daily Positive Cases: ' + totalCases;
+        totaldeath.textContent = 'Total Daily Deaths: ' + totalDeaths;
+        totalhosp.textContent = 'Total Daily Hospitalized: ' + totalHospital;
        
         
         
