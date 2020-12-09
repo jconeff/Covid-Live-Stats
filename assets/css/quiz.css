@@ -1,11 +1,61 @@
+.hero {
+    background-color: #002868;
+}
+
+.navbar-item {
+    color: white;
+    border-radius: 7px;
+}
+
+a.navbar-item:hover {
+    color: #68B1E8;
+    background-color: rgba(255, 255, 255, 0.164);
+
+}
+
+.active {
+    color: #68B1E8;
+    background-color: rgba(255, 255, 255, 0.164);
+}
+
 .title {
     color: hsl(0, 0%, 96%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .footer {
-    background-color: hsla(171, 100%, 41%, 0.103);
-}
-.hide{
-    display: none;
+    background-color: #68b1e846;
+
 }
 
+.stats-title {
+    background-color: #68b1e81c;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.btn-answer{
+    background-color: #68b1e823;
+    border-radius: 10px;
+    border: none;
+}
+.btn-answer:hover{
+    background-color: #68b1e867;
+    border: none;
+}
+.btn-quiz {
+    background-color: #68b1e888;
+    border-radius: 10px;
+    border-color:#68b1e8fa;
+    border-width: medium;
+}
+.btn-quiz:hover {
+    background-color: #68b1e8;
+    color: white;
+    border-color:#f1f9ffcc;
+    border-width: medium;
+}
+
+.hide {
+    display: none;
+}

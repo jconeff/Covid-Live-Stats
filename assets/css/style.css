@@ -13,7 +13,3 @@ section.hero.is-primary{
     z-index: 999;
     width: 100%;
 }
-
-.footer {
-    background-color: hsla(171, 100%, 41%, 0.103);
-}
