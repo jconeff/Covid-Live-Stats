@@ -43,9 +43,15 @@ var apiState;
 
 //math function
 var totalCases = 0;
+var totalDeaths = 0;
+var totalHospital = 0;
+
 
 for (apiState of stateData){
     totalCases = totalCases + apiState.positiveIncrease;
+    totalDeaths = totalDeaths + apiState.deathIncrease;
+    totalHospital = totalHospital + apiState.hospitalizedIncrease;
+    
 
 }
 var average = totalCases/50;
@@ -57,6 +63,11 @@ var bottomAverage = average/1.5
 for (apiState of stateData) {
     console.log(apiState);
     let map =document.getElementById(apiState.state);
+    let totalpos = document.querySelector('#totalpos');
+    let totaldeath = document.querySelector('#totaldeath');
+    let totalhosp = document.querySelector('#totalhos');
+   
+
     //Excluded outside states
     if (map !== null){
         //Least amount of daily cases
@@ -78,16 +89,39 @@ for (apiState of stateData) {
             map.setAttribute('fill','#f02f05');
         }
 
+        //function to create comma
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        totalCases = numberWithCommas(totalCases)
+        totalDeaths = numberWithCommas(totalDeaths)
+        totalHospital = numberWithCommas(totalHospital)
+        apiState.positiveIncrease = numberWithCommas(apiState.positiveIncrease)
+        apiState.deathIncrease = numberWithCommas(apiState.deathIncrease)
+        apiState.hospitalizedIncrease = numberWithCommas(apiState.hospitalizedIncrease)
+
+        //end of creat comma
+
         //Daily positive cases
-        map.setAttribute('data-info',"Positive:" + [apiState.positiveIncrease,'Deaths:'+apiState.deathIncrease,'Hospitalized:'+apiState.hospitalizedIncrease])
+        map.setAttribute('data-info',['Positive: ' + apiState.positiveIncrease,'Deaths: '+apiState.deathIncrease,'Hospitalized: '+apiState.hospitalizedIncrease])
+        totalpos.textContent = 'Total New Daily Positive Cases: ' + totalCases;
+        totaldeath.textContent = 'Total New Daily Deaths: ' + totalDeaths;
+        totalhosp.textContent = 'Total New Daily Hospitalized: ' + totalHospital;
+       
         
         
     }
 
     
-
     
 }
 //End of Loop
 
+
+
     });
+
+    
+
+    

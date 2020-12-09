@@ -1,74 +1,111 @@
-.title {
-    color: hsl(0, 0%, 96%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.hero {
+  background-color: #002868;
 }
-.footer {
-    background-color: hsla(171, 100%, 41%, 0.103);
-/* <<<<<<< HEAD */
+.navbar-item {
+  color: white;
+  border-radius: 7px; 
+}
+.navbar-item:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.164);
+
+}
+.active {
+  color: #68B1E8;
 }
 
+.title {
+  color: hsl(0, 0%, 96%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.footer {
+  background-color: #68b1e846;
+
+}
+.title-map {
+  background: rgba(255, 255, 255, 0) url(../images/covid-background.jpg) no-repeat;
+  width: 100%;
+}
+/* .title-space {
+  margin: 50px;
+} */
 
 
 #us-map{
-  
-    
-    position: center;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 40%;
-    margin:auto;
-  }
-  path:hover, circle:hover {
-    stroke: #002868 !important;
-    stroke-width:2px;
-    stroke-linejoin: round;
-    fill: #002868 !important;
-    cursor: pointer;
-  }
-  #path67 {
-    fill: none !important;
-    stroke: #A9A9A9 !important;
-    cursor: default;
-  }
-  #info-box {
-    display: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-    background-color: #ffffff;
-    border: 2px solid #BF0A30;
-    border-radius: 5px;
-    padding: 5px;
-    font-family: arial;
-  }
+  width: 90%;
+  height: 80%;
+  margin:auto;
+  margin-right: 20px;
+ 
+}
+path:hover, circle:hover {
+  stroke: #002868 !important;
+  stroke-width:2px;
+  stroke-linejoin: round;
+  fill: #002868 !important;
+  cursor: pointer;
+}
+#path67 {
+  fill: none !important;
+  stroke: #A9A9A9 !important;
+  cursor: default;
+}
+#info-box {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 2px solid #BF0A30;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: arial;
+}
 
 
 
 
-  
-  
-  .brightred {
-    background: #f02f05;
-  }
-  
-  .medred {
-    background: #e55039;
-  }
-  
-  .darkorange {
-    background: #fa983a;
-  }
+.brightred {
+  background: #f02f05;
+}
 
-  .lightorange {
-    background: #fcae62;
-  }
+.medred {
+  background: #e55039;
+}
 
-  .box2 {
-    float: left;
-    width: 15px;
-    height: 15px;
-    margin: 5px;
-    border: 1px solid rgba(0, 0, 0, .2);
-  }
+.darkorange {
+  background: #fa983a;
+}
+
+.lightorange {
+  background: #fcae62;
+}
+
+.box2 {
+  float: left;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 10px;
+  margin: auto 8px;
+  border-radius: 5px;
+} 
+
+.key2{
+  border: solid 2px black;
+  border-radius: 10px; 
+  margin: 50px;
+  padding: 15px;
+}
+
+.key2 p {
+  padding-bottom: 8px;
+  margin: auto;
+}
+
+.stats-title {
+  background-color: #68b1e873;
+  border-radius: 7px; 
+  padding: 5px;
+}
