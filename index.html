@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Covid Live Stats</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-   <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!--<link rel="stylesheet" href="assets/css/style.css">-->
     <link rel="stylesheet" href="assets/css/homepage.css">
 </head>
 
 <body>
 
     <!-- Nav Bar -->
-    <section class="hero is-primary">
+    <section class="hero">
         <div class="hero-head my-4">
             <nav class="navbar">
                 <div class="container">
@@ -37,7 +37,7 @@
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <!--navbar menu-->
                         <div class="navbar-end">
-                            <a class="navbar-item is-active" href="homepage.html">
+                            <a class="navbar-item active" href="homepage.html">
                                 Live Stats
                             </a>
                             <a class="navbar-item" href="quiz.html">
@@ -58,29 +58,31 @@
 
     <!--Body-->
     <Section>
-        <div class="conatiner my-4"></div>
 
-        <h5 class="info has-text-centered is-size-9 has-text-weight-medium mb-6">U.S COVID-19 stats for:
-            <p class="today"></p>
-        </h5>
+        <div class="title-space">
+            <h5 class=" info has-text-centered is-size-4 has-text-weight-semibold pt-3 mt-6 mb-5">U.S Daily Total COVID-19
+                Positive Cases, Deaths, and Hospitalizations for:
+                <p class="today"></p>
+            </h5>
+        </div>
 
         <div class="tile is-ancestor">
             <!--search form and main stats-->
-            <div class="tile is-5 is-vertical is-parent box">
-                <h2>New daily U.S total COVID-19 positive cases, new deaths, and new hospitalizations </h2>
-                <div id="totalpos">pos</div>
-                <div id="totaldeath">death</div>
-                <div id="totalhos">hosp</div>
-              <!--overall stas-->
-               
+            <div class="tile is-5 is-vertical p-3 is-parent box">
+                <h2 class="stats-title m-5 has-text-centered is-size-5 has-text-weight-medium">Total U.S Cases</h2>
+                <div class="box stats has-text-centered is-size-6 p-5" id="totalpos">pos</div>
+                <div class="box stats has-text-centered is-size-6" id="totaldeath">death</div>
+                <div class="box stats has-text-centered is-size-6" id="totalhos">hosp</div>
+                <!--overall stas-->
+
             </div>
 
 
 
             <!--Start of map-->
             <div class="tile is-7 is-vertical is-parent box mb-5">
-                <h2>New daily COVID-19 positive cases, new
-                    deaths, and new hospitalizations</h2>
+                <h2 class="stats-title m-5 has-text-centered is-size-5 has-text-weight-medium">Total Cases per State
+                </h2>
                 <div id="info-box"></div>
                 <?xml version="1.0" encoding="utf-8"?>
                 <svg xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -243,7 +245,7 @@
                 <a href="https://websitebeaver.com/how-to-make-an-interactive-and-responsive-svg-map-of-us-states-capitals"
                     target="_blank"
                     style="position: absolute; bottom: 0px; right: 0px; text-decoration: none; color: #8a8787"></a>
-                
+
                 <div class="key2 ">
                     <h3 class="is-size-6 has-text-weight-medium m-1 pb-1">Key:</h3>
                     <ul>
@@ -258,7 +260,7 @@
 
                     </ul>
                 </div>
-                
+
 
             </div>
 
@@ -291,7 +293,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-   <script src="assets/js/general-script.js"></script>
+    <!--<script src="assets/js/general-script.js"></script>-->
     <script src="assets/js/homepage.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

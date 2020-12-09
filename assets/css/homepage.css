@@ -1,20 +1,41 @@
+.hero {
+  background-color: #002868;
+}
+.navbar-item {
+  color: white;
+  border-radius: 7px; 
+}
+.navbar-item:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.164);
+
+}
+.active {
+  color: #68B1E8;
+}
+
 .title {
   color: hsl(0, 0%, 96%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .footer {
-  background-color: hsla(171, 100%, 41%, 0.103);
+  background-color: #68b1e846;
 
 }
-
+.title-map {
+  background: rgba(255, 255, 255, 0) url(../images/covid-background.jpg) no-repeat;
+  width: 100%;
+}
+/* .title-space {
+  margin: 50px;
+} */
 
 
 #us-map{
-  
-  
   width: 90%;
   height: 80%;
-  margin:15px;
+  margin:auto;
+  margin-right: 20px;
  
 }
 path:hover, circle:hover {
@@ -81,4 +102,10 @@ path:hover, circle:hover {
 .key2 p {
   padding-bottom: 8px;
   margin: auto;
+}
+
+.stats-title {
+  background-color: #68b1e873;
+  border-radius: 7px; 
+  padding: 5px;
 }
