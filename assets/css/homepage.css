@@ -3,15 +3,17 @@
 }
 .navbar-item {
   color: white;
-  border-radius: 7px; 
+  border-radius: 7px;  
 }
-.navbar-item:hover {
-  color: black;
-  background-color: rgba(255, 255, 255, 0.164);
 
+a.navbar-item:hover {
+  color: #68B1E8;
+  background-color: rgba(255, 255, 255, 0.164);
 }
+
 .active {
   color: #68B1E8;
+  background-color: rgba(255, 255, 255, 0.164);
 }
 
 .title {
@@ -26,10 +28,6 @@
   background: rgba(255, 255, 255, 0) url(../images/covid-background.jpg) no-repeat;
   width: 100%;
 }
-/* .title-space {
-  margin: 50px;
-} */
-
 
 #us-map{
   width: 90%;
