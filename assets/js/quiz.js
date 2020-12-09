@@ -118,22 +118,21 @@ function endQuiz(event) {
         resultText.textContent = "It seems that you are okay! To stay informed on the most up-to-date COVID-19 stats, or to browse COVID-19 essentials, please visit the link below:";
         resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
 
-        var linkBody = document.createElement("div");
-        linkBody.className = "tile is-child";
-
         //live stats button
+        var linkBody = document.createElement("a");
+        linkBody.className = "tile is-child";
+        linkBody.setAttribute("href", "index.html");
         var resultLink = document.createElement("button");
         resultLink.textContent = "COVID-19 Live Stats";
         resultLink.className = "button is-fullwidth is-medium is-rounded is-primary";
-        resultLink.setAttribute("href", "index.html");
 
         //essentials button
-        var linkBody2 = document.createElement("div");
+        var linkBody2 = document.createElement("a");
         linkBody2.className = "tile is-child";
+        linkBody2.setAttribute("href", "essentials.html");
         var resultLink2 = document.createElement("button");
         resultLink2.textContent = "COVID-19 Essentials";
         resultLink2.className = "button is-fullwidth is-medium is-rounded is-primary";
-        resultLink2.setAttribute("href", "essentials.html");
 
         //append creted items
         document.querySelector("#result-container").appendChild(resultBody);
@@ -153,12 +152,12 @@ function endQuiz(event) {
         resultText.className = "has-text-centered is-size-5 has-text-weight-medium mb-3";
 
         //clinics near you button
-        var linkBody = document.createElement("div");
+        var linkBody = document.createElement("a");
         linkBody.className = "tile is-child";
+        linkBody.setAttribute("href", "nearby-clinic.html");
         var resultLink = document.createElement("button");
         resultLink.textContent = "Clinics Near You";
         resultLink.className = "button is-fullwidth is-medium is-rounded is-primary";
-        resultLink.setAttribute("href", "nearby-clinic.html");
 
         //append created items
         document.querySelector("#result-container").appendChild(resultBody);
