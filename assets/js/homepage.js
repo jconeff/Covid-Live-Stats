@@ -23,6 +23,10 @@ $("path, circle").hover(function(e) {
   }
   //End of US-Map Function
 
+
+
+  
+
   //saves when refreshed
   //right side save
 let side1 = 1;
@@ -40,6 +44,7 @@ let statename2 =document.querySelector('.state2')
 let stateinfo2 =document.querySelector('.poscomp2')
 statename2.textContent = localStorage.getItem('statename2')
 stateinfo2.textContent = localStorage.getItem('stateinfo2')
+
 
 
   //Covid stat API
@@ -85,6 +90,8 @@ for (apiState of stateData) {
     let totalpos = document.querySelector('#totalpos');
     let totaldeath = document.querySelector('#totaldeath');
     let totalhosp = document.querySelector('#totalhos');
+
+
    
 
     //Excluded outside states
@@ -104,6 +111,7 @@ for (apiState of stateData) {
                 
                 let statename =document.querySelector('.state1')
                 let poscomp =document.querySelector('.poscomp1')
+
                 
                 statename.textContent = event.target.id;
                 poscomp.textContent = event.target.getAttribute('data-info');
@@ -124,6 +132,7 @@ for (apiState of stateData) {
             }
             
         })
+        
 
         //end of event click
 
