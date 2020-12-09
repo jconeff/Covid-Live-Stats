@@ -127,21 +127,11 @@ function endQuiz(event) {
         resultLink.textContent = "COVID-19 Live Stats";
         resultLink.className = "button is-fullwidth is-medium btn-quiz";
 
-        //essentials button
-        var linkBody2 = document.createElement("a");
-        linkBody2.className = "tile is-child";
-        linkBody2.setAttribute("href", "essentials.html");
-        var resultLink2 = document.createElement("button");
-        resultLink2.textContent = "COVID-19 Essentials";
-        resultLink2.className = "button is-fullwidth is-medium btn-quiz";
-
         //append creted items
         document.querySelector("#result-container").appendChild(resultBody);
         resultBody.appendChild(resultText);
         document.querySelector("#quiz-body").appendChild(linkBody);
         linkBody.appendChild(resultLink);
-        document.querySelector("#quiz-body").appendChild(linkBody2);
-        linkBody2.appendChild(resultLink2);
 
     } else {
         //display if the user is suspected of having COVID-19
