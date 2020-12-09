@@ -5,13 +5,14 @@
   color: white;
   border-radius: 7px; 
 }
-.navbar-item:hover {
+a.navbar-item:hover {
   color: black;
   background-color: rgba(255, 255, 255, 0.164);
 
 }
 .active {
   color: #68B1E8;
+  background-color: rgba(255, 255, 255, 0.164);
 }
 
 .title {
