@@ -89,22 +89,39 @@ for (apiState of stateData) {
             map.setAttribute('fill','#f02f05');
         }
 
+        //function to create comma
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        totalCases = numberWithCommas(totalCases)
+        totalDeaths = numberWithCommas(totalDeaths)
+        totalHospital = numberWithCommas(totalHospital)
+        apiState.positiveIncrease = numberWithCommas(apiState.positiveIncrease)
+        apiState.deathIncrease = numberWithCommas(apiState.deathIncrease)
+        apiState.hospitalizedIncrease = numberWithCommas(apiState.hospitalizedIncrease)
+
+        //end of creat comma
+
         //Daily positive cases
-        map.setAttribute('data-info',['Positive:' + apiState.positiveIncrease,'Deaths:'+apiState.deathIncrease,'Hospitalized:'+apiState.hospitalizedIncrease])
-        totalpos.textContent = 'Total New Daily Positive Cases:' + totalCases;
-        totaldeath.textContent = 'Total New Daily Deaths:' + totalDeaths;
-        totalhosp.textContent = 'Total New Daily Hospitalized:' + totalHospital;
+        map.setAttribute('data-info',['Positive: ' + apiState.positiveIncrease,'Deaths: '+apiState.deathIncrease,'Hospitalized: '+apiState.hospitalizedIncrease])
+        totalpos.textContent = 'Total New Daily Positive Cases: ' + totalCases;
+        totaldeath.textContent = 'Total New Daily Deaths: ' + totalDeaths;
+        totalhosp.textContent = 'Total New Daily Hospitalized: ' + totalHospital;
        
         
         
     }
 
     
-
     
 }
 //End of Loop
 
+
+
     });
+
+    
 
     
